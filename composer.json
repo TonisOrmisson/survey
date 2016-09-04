@@ -1,0 +1,35 @@
+{
+    "name": "andmemasin/survey",
+
+    "type": "library",
+
+    "dist": {
+        "url": "https://t6nnp6nn@bitbucket.org/andmemasin/survey.git",
+        "type": "git"
+    },
+
+    "description": "Cross-app Survey library",
+    "keywords": ["yii2", "survey-hub", "survey", "andmemasin"],
+    "support": {
+        "issues": "https://andmemasin.eu",
+        "source": "https://bitbucket.org/andmemasin/survey"
+
+    },
+    "authors": [
+        {
+            "name": "Tõnis Ormisson",
+            "email": "tonis@andmemasin.eu"
+        }
+    ],
+
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "andmemasin\\survey\\": ""
+        }
+    }
+
+}
