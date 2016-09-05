@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tonis_o
- * Date: 4.09.16
- * Time: 15:38
- */
 
 namespace andmemasin\survey\api;
-
 
 class Status
 {
@@ -19,14 +12,39 @@ class Status
     const STATUS_INACTIVE   = "inactive";
     const STATUS_ARCHIVED   = "archived";
 
+
+    /**
+     * Returns all possible status values with description.
+     * @return array
+     */
     public static function getAllStatuses(){
         return [
-            self::STATUS_CREATED,
-            self::STATUS_CONFIRMED,
-            self::STATUS_ACTIVE,
-            self::STATUS_TESTING,
-            self::STATUS_INACTIVE,
-            self::STATUS_ARCHIVED,
+            [self::STATUS_CREATED=>'Initial default status (unconfirmed by app)'],
+            [self::STATUS_CONFIRMED=>'Whether app has confirmed the key'],
+            [self::STATUS_ACTIVE=>'Survey is fully active'],
+            [self::STATUS_TESTING=>'Survey is active for testing only'],
+            [self::STATUS_INACTIVE=>'Survey is inactive state'],
+            [self::STATUS_ARCHIVED=>'Survey is archived'],
         ];
     }
+
+
+    /**
+     * Returns all status names in plain array without labels
+     * @return array
+     */
+    public static function getAllStatusNames(){
+        $out = [];
+        foreach (self::getAllStatuses() as $name => $label) {
+            $out = $name;
+        }
+        return $out;
+    }
+
+
+    public static function getStatusLabel($status){
+        return self::getAllStatuses()[$status];
+    }
+
+
 }
