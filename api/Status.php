@@ -32,7 +32,7 @@ class Status
      * Returns all statuses that do not allow the to edit the model KEY any more
      * @return array
      */
-    public function getLockedStatuses(){
+    public static function getLockedStatuses(){
         return [
             [self::STATUS_CONFIRMED=>'Whether app has confirmed the key'],
             [self::STATUS_ACTIVE=>'Survey is fully active'],
