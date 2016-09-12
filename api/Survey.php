@@ -8,4 +8,7 @@ class Survey
 
     /** The action name of the Set-status in SurveyHub */
     const ACTION_SURVEY_SETNEWSTATUS = "survey/set-status";
+
+    /** The action name of the get-status in SurveyHub */
+    const ACTION_SURVEY_GETNEWSTATUS = "survey/get-status";
 }
