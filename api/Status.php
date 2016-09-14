@@ -19,12 +19,12 @@ class Status
      */
     public static function getAllStatuses(){
         return [
-            [self::STATUS_CREATED=>'Initial default status (unconfirmed by app)'],
-            [self::STATUS_CONFIRMED=>'Whether app has confirmed the key'],
-            [self::STATUS_ACTIVE=>'Survey is fully active'],
-            [self::STATUS_TESTING=>'Survey is active for testing only'],
-            [self::STATUS_INACTIVE=>'Survey is inactive state'],
-            [self::STATUS_ARCHIVED=>'Survey is archived'],
+            self::STATUS_CREATED=>'Initial default status (unconfirmed by app)',
+            self::STATUS_CONFIRMED=>'Whether app has confirmed the key',
+            self::STATUS_ACTIVE=>'Survey is fully active',
+            self::STATUS_TESTING=>'Survey is active for testing only',
+            self::STATUS_INACTIVE=>'Survey is inactive state',
+            self::STATUS_ARCHIVED=>'Survey is archived',
         ];
     }
 
@@ -34,11 +34,11 @@ class Status
      */
     public static function getLockedStatuses(){
         return [
-            [self::STATUS_CONFIRMED=>'Whether app has confirmed the key'],
-            [self::STATUS_ACTIVE=>'Survey is fully active'],
-            [self::STATUS_TESTING=>'Survey is active for testing only'],
-            [self::STATUS_INACTIVE=>'Survey is inactive state'],
-            [self::STATUS_ARCHIVED=>'Survey is archived'],
+            self::STATUS_CONFIRMED=>'Whether app has confirmed the key',
+            self::STATUS_ACTIVE=>'Survey is fully active',
+            self::STATUS_TESTING=>'Survey is active for testing only',
+            self::STATUS_INACTIVE=>'Survey is inactive state',
+            self::STATUS_ARCHIVED=>'Survey is archived',
         ];
 
     }
