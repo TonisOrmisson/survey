@@ -43,6 +43,11 @@ class Status
 
     }
 
+
+    /**
+     * Returns all statuses that allow active tasks
+     * @return array
+     */
     public static function getActiveStatuses(){
         return [
             self::STATUS_ACTIVE=>self::getStatusLabel(self::STATUS_ACTIVE),
