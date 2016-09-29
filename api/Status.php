@@ -11,6 +11,7 @@ class Status
     const STATUS_TESTING    = "testing";
     const STATUS_INACTIVE   = "inactive";
     const STATUS_ARCHIVED   = "archived";
+    const STATUS_FAILED     = "failed";
 
 
     /**
@@ -25,6 +26,7 @@ class Status
             self::STATUS_TESTING=>'Active for testing only',
             self::STATUS_INACTIVE=>'Inactive state',
             self::STATUS_ARCHIVED=>'Archived',
+            self::STATUS_FAILED=>'Failed',
         ];
     }
 
