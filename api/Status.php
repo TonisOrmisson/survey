@@ -12,6 +12,7 @@ class Status
     const STATUS_INACTIVE   = "inactive";
     const STATUS_ARCHIVED   = "archived";
     const STATUS_FAILED     = "failed";
+    const STATUS_REJECTED     = "rejected";
 
 
     /**
@@ -20,13 +21,14 @@ class Status
      */
     public static function getAllStatuses(){
         return [
-            self::STATUS_CREATED=>'Initial default status (unconfirmed by app)',
-            self::STATUS_CONFIRMED=>'Whether app has confirmed the key',
+            self::STATUS_CREATED=>'Created',
+            self::STATUS_CONFIRMED=>'Confirmed',
             self::STATUS_ACTIVE=>'Fully active',
             self::STATUS_TESTING=>'Active for testing only',
             self::STATUS_INACTIVE=>'Inactive state',
             self::STATUS_ARCHIVED=>'Archived',
             self::STATUS_FAILED=>'Failed',
+            self::STATUS_REJECTED=>'Rejected',
         ];
     }
 
@@ -41,6 +43,7 @@ class Status
             self::STATUS_TESTING=>self::getStatusLabel(self::STATUS_TESTING),
             self::STATUS_INACTIVE=>self::getStatusLabel(self::STATUS_INACTIVE),
             self::STATUS_ARCHIVED=>self::getStatusLabel(self::STATUS_ARCHIVED),
+            self::STATUS_REJECTED=>self::getStatusLabel(self::STATUS_REJECTED),
         ];
 
     }
