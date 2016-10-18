@@ -13,6 +13,7 @@ class Status
     const STATUS_ARCHIVED   = "archived";
     const STATUS_FAILED     = "failed";
     const STATUS_REJECTED     = "rejected";
+    const STATUS_COMPLAINT     = "complaint";
 
 
     /**
@@ -29,6 +30,7 @@ class Status
             self::STATUS_ARCHIVED=>'Archived',
             self::STATUS_FAILED=>'Failed',
             self::STATUS_REJECTED=>'Rejected',
+            self::STATUS_COMPLAINT=>'Complaint',
         ];
     }
 
@@ -44,6 +46,7 @@ class Status
             self::STATUS_INACTIVE=>self::getStatusLabel(self::STATUS_INACTIVE),
             self::STATUS_ARCHIVED=>self::getStatusLabel(self::STATUS_ARCHIVED),
             self::STATUS_REJECTED=>self::getStatusLabel(self::STATUS_REJECTED),
+            self::STATUS_COMPLAINT=>self::getStatusLabel(self::STATUS_COMPLAINT),
         ];
 
     }
