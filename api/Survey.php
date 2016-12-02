@@ -11,4 +11,10 @@ class Survey
 
     /** The action name of the get-status in SurveyHub */
     const ACTION_SURVEY_GETNEWSTATUS = "survey/get-status";
+
+    /** The action name of the get-apps in SurveyHub */
+    const ACTION_SURVEY_GETAPPS = "survey/get-apps";
+
+    /** The action name of the get-satuses in SurveyHub */
+    const ACTION_SURVEY_GETSTATUSES = "survey/get-statuses";
 }
