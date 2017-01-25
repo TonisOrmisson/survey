@@ -37,7 +37,7 @@ class Status
 
     /**
      * Returns all statuses that do not allow the to edit the model KEY any more
-     * @return array
+     * @return string[]
      */
     public static function getLockedStatuses(){
         return [
@@ -52,6 +52,20 @@ class Status
 
     }
 
+    /**
+     * Returns all statuses that are not archived
+     * @return string[]
+     */
+    public static function getUnArchivedStatuses(){
+        return [
+            self::STATUS_CONFIRMED=>self::getStatusLabel(self::STATUS_CONFIRMED),
+            self::STATUS_ACTIVE=>self::getStatusLabel(self::STATUS_ACTIVE),
+            self::STATUS_TESTING=>self::getStatusLabel(self::STATUS_TESTING),
+            self::STATUS_INACTIVE=>self::getStatusLabel(self::STATUS_INACTIVE),
+            self::STATUS_REJECTED=>self::getStatusLabel(self::STATUS_REJECTED),
+            self::STATUS_COMPLAINT=>self::getStatusLabel(self::STATUS_COMPLAINT),
+        ];
+    }
 
     /**
      * Returns all statuses that allow active tasks
