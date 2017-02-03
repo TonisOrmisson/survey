@@ -26,9 +26,6 @@ class Survey
     /** The action name of the get-apps in SurveyHub */
     const ACTION_SURVEY_GETAPPS = "survey/get-apps";
 
-    /** The action name of the get-satuses in SurveyHub */
-    const ACTION_SURVEY_GETSTATUSES = "survey/get-statuses";
-
-    /** The action name of the get-satuses in SurveyHub */
-    const ACTION_RESPONDENT_GETSTATUSES = "respondent/get-statuses";
+    /** The action name of the validate survey */
+    const ACTION_SURVEY_VALIDATE = "survey/validate";
 }
