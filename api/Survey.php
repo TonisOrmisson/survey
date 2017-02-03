@@ -28,4 +28,7 @@ class Survey
 
     /** The action name of the validate survey */
     const ACTION_SURVEY_VALIDATE = "survey/validate";
+
+    /** The action name of the validate respondent */
+    const ACTION_RESPONDENT_VALIDATE = "respondent/validate";
 }
