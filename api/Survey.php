@@ -9,6 +9,9 @@ class Survey
     /** The action name of the Get-new-key in SurveyHub */
     const ACTION_RESPONDENT_GETNEWKEY = "respondent/get-new-key";
 
+    /** The action name of the Get-new-key in SurveyHub */
+    const ACTION_RESPONSE_GETNEWKEY = "response/get-new-key";
+
     /** The action name of the Set-status in SurveyHub */
     const ACTION_SURVEY_SETNEWSTATUS = "survey/set-status";
 
@@ -23,6 +26,7 @@ class Survey
 
     /** The action name of the view respondent in SurveyHub */
     const ACTION_RESPONDENT_GET = "respondent/view";
+
     /** The action name of the get-apps in SurveyHub */
     const ACTION_SURVEY_GETAPPS = "survey/get-apps";
 
