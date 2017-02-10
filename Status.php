@@ -1,6 +1,6 @@
 <?php
 
-namespace andmemasin\survey\api;
+namespace andmemasin\survey;
 
 class Status
 {

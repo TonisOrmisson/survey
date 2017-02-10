@@ -1,6 +1,6 @@
 <?php
 
-namespace andmemasin\survey\api;
+namespace andmemasin\survey;
 class Survey
 {
     /** The action name of the Get-new-key in SurveyHub */
