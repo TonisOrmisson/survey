@@ -2,6 +2,7 @@
     "name": "andmemasin/survey",
 
     "type": "library",
+    "license":"proprietary",
 
     "dist": {
         "url": "https://t6nnp6nn@bitbucket.org/andmemasin/survey.git",
@@ -22,6 +23,8 @@
         }
     ],
 
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
     },
 
