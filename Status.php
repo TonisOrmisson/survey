@@ -162,26 +162,6 @@ class Status extends Model
 
 
 
-    /**
-     * Returns all statuses that do not allow the to edit the model KEY any more
-     * @return string[]
-     */
-    public static function getLockedStatuses(){
-        return [
-            self::STATUS_CONFIRMED=>self::getStatusLabel(self::STATUS_CONFIRMED),
-            self::STATUS_ACTIVE=>self::getStatusLabel(self::STATUS_ACTIVE),
-            self::STATUS_TESTING=>self::getStatusLabel(self::STATUS_TESTING),
-            self::STATUS_INACTIVE=>self::getStatusLabel(self::STATUS_INACTIVE),
-            self::STATUS_ARCHIVED=>self::getStatusLabel(self::STATUS_ARCHIVED),
-            self::STATUS_REJECTED=>self::getStatusLabel(self::STATUS_REJECTED),
-            self::STATUS_COMPLAINT=>self::getStatusLabel(self::STATUS_COMPLAINT),
-        ];
-    }
-
-
-
-
-
 
 
     /**
