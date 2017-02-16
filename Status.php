@@ -2,8 +2,17 @@
 
 namespace andmemasin\survey;
 
-class Status
+use Yii;
+use yii\base\Model;
+
+class Status extends Model
 {
+    /** @var  integer $id*/
+    public $id;
+
+    /** @var  string $label */
+    public $label;
+
     // all statuses separately
     const STATUS_CREATED        = "created";
     const STATUS_CONFIRMED      = "confirmed";
@@ -19,40 +28,139 @@ class Status
     const STATUS_SCREENED       = 'screened';
     const STATUS_END_QUOTA      = 'quota';
 
+    /**
+     * @return array
+     */
+    private static function items(){
+        return [
+            self::STATUS_CREATED => [
+                'id' => self::STATUS_CREATED,
+                'label' => Yii::t('app','Created'),
+            ],
+            self::STATUS_CONFIRMED => [
+                'id' => self::STATUS_CONFIRMED,
+                'label' => Yii::t('app','Confirmed'),
+            ],
+            self::STATUS_ACTIVE => [
+                'id' => self::STATUS_ACTIVE,
+                'label' => Yii::t('app','Active'),
+            ],
+            self::STATUS_TESTING => [
+                'id' => self::STATUS_TESTING,
+                'label' => Yii::t('app','Active for testing'),
+            ],
+            self::STATUS_INACTIVE => [
+                'id' => self::STATUS_INACTIVE,
+                'label' => Yii::t('app','Inactive'),
+            ],
+            self::STATUS_ARCHIVED => [
+                'id' => self::STATUS_ARCHIVED,
+                'label' => Yii::t('app','Archived'),
+            ],
+            self::STATUS_FAILED => [
+                'id' => self::STATUS_FAILED,
+                'label' => Yii::t('app','Failed'),
+            ],
+            self::STATUS_REJECTED => [
+                'id' => self::STATUS_REJECTED,
+                'label' => Yii::t('app','Rejected'),
+            ],
+            self::STATUS_COMPLAINT => [
+                'id' => self::STATUS_COMPLAINT,
+                'label' => Yii::t('app','Complaint'),
+            ],
+
+            self::STATUS_ANSWERED => [
+                'id' => self::STATUS_ANSWERED,
+                'label' => Yii::t('app','Answered'),
+            ],
+            self::STATUS_SCREENED => [
+                'id' => self::STATUS_SCREENED,
+                'label' => Yii::t('app','Screened out'),
+            ],
+            self::STATUS_END_QUOTA => [
+                'id' => self::STATUS_END_QUOTA,
+                'label' => Yii::t('app','Quota full'),
+            ],
+        ];
+    }
 
 
     /**
-     * Returns all possible status values with description.
-     * @return array
+     * @return Status[]
      */
-    public static function getAllStatuses(){
-        return [
-            self::STATUS_CREATED    =>'Created',
-            self::STATUS_CONFIRMED  =>'Confirmed',
-            self::STATUS_ACTIVE     =>'Fully active',
-            self::STATUS_TESTING    =>'Active for testing only',
-            self::STATUS_INACTIVE   =>'Inactive state',
-            self::STATUS_ARCHIVED   =>'Archived',
-            self::STATUS_FAILED     =>'Failed',
-            self::STATUS_REJECTED   =>'Rejected',
-            self::STATUS_COMPLAINT  =>'Complaint',
-
-            self::STATUS_ANSWERED   =>'Answered',
-            self::STATUS_SCREENED   =>'Screened out',
-            self::STATUS_END_QUOTA  =>'Quota Full',
-        ];
+    public static  function getAllStatuses(){
+        $models = [];
+        foreach (self::items() as $id=> $item){
+            $models[] = self::getById($id);
+        }
+        return $models;
     }
 
     /**
      * Returns statuses for simple active/inactive usage
-     * @return string[]
+     * @return Status[]
      */
     public static function getSimpleStatuses(){
-        return [
-            self::STATUS_ACTIVE=>self::getStatusLabel(self::STATUS_ACTIVE),
-            self::STATUS_INACTIVE=>self::getStatusLabel(self::STATUS_INACTIVE),
-        ];
+        $statuses  =[];
+        $statuses[] = self::getById(self::STATUS_ACTIVE);
+        $statuses[] = self::getById(self::STATUS_INACTIVE);
+        return $statuses;
     }
+
+    /**
+     * Returns all statuses that allow active tasks
+     * @return Status[]
+     */
+    public static function getActiveStatuses(){
+        $statuses  =[];
+        $statuses[] = self::getById(self::STATUS_ACTIVE);
+        $statuses[] = self::getById(self::STATUS_TESTING);
+        return $statuses;
+    }
+
+    /**
+     * @param string $status
+     * @return bool
+     */
+    public static function isLocked($status){
+        $lockedStatuses = [
+            self::STATUS_CONFIRMED, self::STATUS_ACTIVE, self::STATUS_TESTING,
+            self::STATUS_INACTIVE, self::STATUS_ARCHIVED, self::STATUS_REJECTED,
+            self::STATUS_COMPLAINT,
+        ];
+        return in_array($status,$lockedStatuses);
+    }
+
+    public static function isAnswered($status){
+        $statuses = [
+            self::STATUS_REJECTED,
+            self::STATUS_COMPLAINT,
+            self::STATUS_ANSWERED,
+            self::STATUS_SCREENED,
+            self::STATUS_END_QUOTA,
+        ];
+        return in_array($status,$statuses);
+    }
+
+    public static function isActive($status){
+        $statuses = [
+            self::STATUS_ACTIVE,
+            self::STATUS_TESTING,
+        ];
+        return in_array($status,$statuses);
+    }
+
+    public static function isArchived($status){
+        $statuses = [
+            self::STATUS_ARCHIVED,
+        ];
+        return in_array($status,$statuses);
+    }
+
+
+
+
 
     /**
      * Returns all statuses that do not allow the to edit the model KEY any more
@@ -70,61 +178,10 @@ class Status
         ];
     }
 
-    /**
-     * @return string[]
-     */
-    public static function getResponseStatuses(){
-        return [
-            self::STATUS_ACTIVE=>self::getStatusLabel(self::STATUS_ACTIVE),
-            self::STATUS_INACTIVE=>self::getStatusLabel(self::STATUS_INACTIVE),
-            self::STATUS_ARCHIVED=>self::getStatusLabel(self::STATUS_ARCHIVED),
-            self::STATUS_REJECTED=>self::getStatusLabel(self::STATUS_REJECTED),
-            self::STATUS_COMPLAINT=>self::getStatusLabel(self::STATUS_COMPLAINT),
-            self::STATUS_ANSWERED=>self::getStatusLabel(self::STATUS_ANSWERED),
-            self::STATUS_SCREENED=>self::getStatusLabel(self::STATUS_SCREENED),
-            self::STATUS_END_QUOTA=>self::getStatusLabel(self::STATUS_END_QUOTA),
-        ];
-    }
 
-    /**
-     * @return string[]
-     */
-    public static function getResponseClosedStatuses(){
-        return [
-            self::STATUS_REJECTED=>self::getStatusLabel(self::STATUS_REJECTED),
-            self::STATUS_COMPLAINT=>self::getStatusLabel(self::STATUS_COMPLAINT),
-            self::STATUS_ANSWERED=>self::getStatusLabel(self::STATUS_ANSWERED),
-            self::STATUS_SCREENED=>self::getStatusLabel(self::STATUS_SCREENED),
-            self::STATUS_END_QUOTA=>self::getStatusLabel(self::STATUS_END_QUOTA),
-        ];
-    }
 
-    /**
-     * Returns all statuses that are not archived
-     * @return string[]
-     */
-    public static function getUnArchivedStatuses(){
-        return [
-            self::STATUS_CONFIRMED=>self::getStatusLabel(self::STATUS_CONFIRMED),
-            self::STATUS_ACTIVE=>self::getStatusLabel(self::STATUS_ACTIVE),
-            self::STATUS_TESTING=>self::getStatusLabel(self::STATUS_TESTING),
-            self::STATUS_INACTIVE=>self::getStatusLabel(self::STATUS_INACTIVE),
-            self::STATUS_REJECTED=>self::getStatusLabel(self::STATUS_REJECTED),
-            self::STATUS_COMPLAINT=>self::getStatusLabel(self::STATUS_COMPLAINT),
-        ];
-    }
 
-    /**
-     * Returns all statuses that allow active tasks
-     * @return array
-     */
-    public static function getActiveStatuses(){
-        return [
-            self::STATUS_ACTIVE=>self::getStatusLabel(self::STATUS_ACTIVE),
-            self::STATUS_TESTING=>self::getStatusLabel(self::STATUS_TESTING),
-        ];
 
-    }
 
 
     /**
@@ -140,8 +197,25 @@ class Status
     }
 
 
+    public static function isStatus($id){
+        return (self::getById($id)==false);
+    }
+
+
     public static function getStatusLabel($status){
         return self::getAllStatuses()[$status];
+    }
+
+    /**
+     * @param $id
+     * @return Status|boolean
+     */
+    public static function getById($id){
+        $models = self::items();
+        if(isset($models[$id])){
+            return new static($models[$id]);
+        }
+        return false;
     }
 
 
