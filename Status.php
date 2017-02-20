@@ -178,7 +178,7 @@ class Status extends Model
 
 
     public static function isStatus($id){
-        return (self::getById($id)==false);
+        return (!self::getById($id)==false);
     }
 
 
