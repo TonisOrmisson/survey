@@ -24,6 +24,7 @@ class Status extends Model
     const STATUS_REJECTED       = "rejected";
     const STATUS_COMPLAINT      = "complaint";
 
+    // these are used for linking with main Results
     const STATUS_ANSWERED       = 'answered';
     const STATUS_SCREENED       = 'screened';
     const STATUS_END_QUOTA      = 'quota';
