@@ -38,5 +38,5 @@ class Survey
 
     const ACTION_REJECTION_CREATE = "rejection/create";
 
-    const ACTION_REJECTION_CHECK_EMAIL = "rejection/check-address";
+    const ACTION_REJECTION_CHECK = "rejection/check";
 }
