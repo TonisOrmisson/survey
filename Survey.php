@@ -36,6 +36,7 @@ class Survey
     /** The action name of the validate respondent */
     const ACTION_RESPONDENT_VALIDATE = "respondent/validate";
 
-    /** The action name of the validate respondent */
     const ACTION_REJECTION_CREATE = "rejection/create";
+
+    const ACTION_REJECTION_CHECK_EMAIL = "rejection/check-address";
 }
