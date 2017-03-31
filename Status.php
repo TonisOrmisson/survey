@@ -5,6 +5,12 @@ namespace andmemasin\survey;
 use Yii;
 use yii\base\Model;
 
+/**
+ * Class Status
+ * @property integer $id
+ * @property string $label
+ * @package andmemasin\survey
+ */
 class Status extends Model
 {
     /** @var  integer $id*/
