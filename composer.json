@@ -17,6 +17,10 @@
             "email": "tonis@andmemasin.eu"
         }
     ],
+    "source": {
+        "url": "https://t6nnp6nn@bitbucket.org/andmemasin/survey.git",
+        "type": "git"
+    },
 
     "minimum-stability": "dev",
     "prefer-stable": true,
