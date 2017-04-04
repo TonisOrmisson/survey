@@ -4,11 +4,6 @@
     "type": "library",
     "license":"proprietary",
 
-    "dist": {
-        "url": "https://t6nnp6nn@bitbucket.org/andmemasin/survey.git",
-        "type": "git"
-    },
-
     "description": "Cross-app Survey library",
     "keywords": ["yii2", "survey-hub", "survey", "andmemasin"],
     "support": {
