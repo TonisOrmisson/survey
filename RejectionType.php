@@ -2,10 +2,10 @@
 
 namespace andmemasin\survey;
 
+use andmemasin\myabstract\StaticModel;
 use Yii;
-use yii\base\Model;
 
-class RejectionType extends Model
+class RejectionType extends StaticModel
 {
     const TYPE_HARD_BOUNCE = 'hard';
     const TYPE_SOFT_BOUNCE = 'soft';
@@ -13,9 +13,10 @@ class RejectionType extends Model
     const TYPE_ANSWERED = 'answered';
     const TYPE_OTHER = 'other';
 
-    /**
-     * @return RejectionType[]
-     */
+    /** @inheritdoc */
+    public static $keyColumn = 'name';
+
+    /** @inheritdoc */
     public static function getModels(){
         return [
             self::TYPE_HARD_BOUNCE => [
@@ -45,18 +46,6 @@ class RejectionType extends Model
             ],
 
         ];
-    }
-
-    /**
-     * @param $id
-     * @return RejectionType|array
-     */
-    public static function getById($id){
-        $models = self::getModels();
-        if(isset($models[$id])){
-            return new static($models[$id]);
-        }
-        return [];
     }
 
 }

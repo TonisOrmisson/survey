@@ -2,8 +2,8 @@
 
 namespace andmemasin\survey;
 
+use andmemasin\myabstract\StaticModel;
 use Yii;
-use yii\base\Model;
 
 /**
  * Class Status
@@ -11,7 +11,7 @@ use yii\base\Model;
  * @property string $label
  * @package andmemasin\survey
  */
-class Status extends Model
+class Status extends StaticModel
 {
     /** @var  integer $id*/
     public $id;
@@ -35,8 +35,16 @@ class Status extends Model
     const STATUS_SCREENED       = 'screened';
     const STATUS_END_QUOTA      = 'quota';
 
+    /** @inheritdoc */
+    public static function getModels()
+    {
+        return self::items();
+    }
+
     /**
      * @return array
+     * TODO use getModels instead!
+     * @deprecated use getModels instead!
      */
     private static function items(){
         return [
@@ -98,7 +106,7 @@ class Status extends Model
      */
     public static  function getAllStatuses(){
         $models = [];
-        foreach (self::items() as $id=> $item){
+        foreach (self::getModels() as $id=> $item){
             $models[] = self::getById($id);
         }
         return $models;
@@ -169,8 +177,6 @@ class Status extends Model
 
 
 
-
-
     /**
      * Returns all status names in plain array without labels
      * @return array
@@ -191,18 +197,6 @@ class Status extends Model
 
     public static function getStatusLabel($status){
         return self::getAllStatuses()[$status];
-    }
-
-    /**
-     * @param $id
-     * @return Status|boolean
-     */
-    public static function getById($id){
-        $models = self::items();
-        if(isset($models[$id])){
-            return new static($models[$id]);
-        }
-        return false;
     }
 
 
