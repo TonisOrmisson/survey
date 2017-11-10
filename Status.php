@@ -19,6 +19,8 @@ class Status extends StaticModel
     /** @var  string $label */
     public $label;
 
+    public static $keyColumn = 'id';
+
     // all statuses separately
     const STATUS_CREATED        = "created";
     const STATUS_CONFIRMED      = "confirmed";
