@@ -17,8 +17,8 @@
         }
     ],
     "source": {
-      "url": "https://t6nnp6nn@bitbucket.org/andmemasin/survey.git",
-      "type": "git",
+      "url": "https://bitbucket.org/andmemasin/survey",
+      "type": "vcs",
       "reference": "master"
     },
 
