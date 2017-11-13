@@ -6,21 +6,18 @@
 
     "description": "Cross-app Survey library",
     "keywords": ["yii2", "survey-hub", "survey", "andmemasin"],
-    "support": {
-        "issues": "https://andmemasin.eu"
-
-    },
     "authors": [
         {
             "name": "Tõnis Ormisson",
             "email": "tonis@andmemasin.eu"
         }
     ],
-    "source": {
-      "url": "https://bitbucket.org/andmemasin/survey",
-      "type": "vcs",
-      "reference": "master"
-    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.andmemasin.eu"
+        }
+    ],
 
     "minimum-stability": "dev",
     "prefer-stable": true,
