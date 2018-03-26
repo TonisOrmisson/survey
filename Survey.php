@@ -9,6 +9,12 @@ class Survey
     /** The action name of the Get-new-key in SurveyHub */
     const ACTION_RESPONDENT_GETNEWKEY = "respondent/get-new-key";
 
+    /** The action name of inserting new respondents in SurveyHub */
+    const ACTION_RESPONDENT_CREATE_KEYS = "respondent/create-keys";
+
+    /** The action name of inserting new responses in SurveyHub */
+    const ACTION_RESPONSE_CREATE_KEYS = "response/create-keys";
+
     /** The action name of the Get-new-key in SurveyHub */
     const ACTION_RESPONSE_GETNEWKEY = "response/get-new-key";
 
