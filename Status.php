@@ -31,11 +31,7 @@ class Status extends StatusModel
     /** @inheritdoc */
     public static function getModels()
     {
-        return [
-            self::STATUS_CREATED => [
-                'id' => self::STATUS_CREATED,
-                'label' => Yii::t('app','Created'),
-            ],
+        return array_merge(parent::getModels(), [
             self::STATUS_CONFIRMED => [
                 'id' => self::STATUS_CONFIRMED,
                 'label' => Yii::t('app','Confirmed'),
@@ -81,7 +77,7 @@ class Status extends StatusModel
                 'id' => self::STATUS_END_QUOTA,
                 'label' => Yii::t('app','Quota full'),
             ],
-        ];
+        ]);
     }
 
 
