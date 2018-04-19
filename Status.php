@@ -2,24 +2,15 @@
 
 namespace andmemasin\survey;
 
-use andmemasin\myabstract\StaticModel;
+use andmemasin\myabstract\StatusModel;
 use Yii;
 
 /**
  * Class Status
- * @property integer $id
- * @property string $label
  * @package andmemasin\survey
  */
-class Status extends StaticModel
+class Status extends StatusModel
 {
-    /** @var  integer $id*/
-    public $id;
-
-    /** @var  string $label */
-    public $label;
-
-    public static $keyColumn = 'id';
 
     // all statuses separately
     const STATUS_CREATED        = "created";
@@ -40,15 +31,6 @@ class Status extends StaticModel
     /** @inheritdoc */
     public static function getModels()
     {
-        return self::items();
-    }
-
-    /**
-     * @return array
-     * TODO use getModels instead!
-     * @deprecated use getModels instead!
-     */
-    private static function items(){
         return [
             self::STATUS_CREATED => [
                 'id' => self::STATUS_CREATED,
@@ -105,13 +87,10 @@ class Status extends StaticModel
 
     /**
      * @return Status[]
+     * @deprecated use getModels()
      */
     public static  function getAllStatuses(){
-        $models = [];
-        foreach (self::getModels() as $id=> $item){
-            $models[] = self::getById($id);
-        }
-        return $models;
+        return self::getModels();
     }
 
     /**
@@ -173,32 +152,6 @@ class Status extends StaticModel
             self::STATUS_ARCHIVED,
         ];
         return in_array($status,$statuses);
-    }
-
-
-
-
-
-    /**
-     * Returns all status names in plain array without labels
-     * @return array
-     */
-    public static function getAllStatusNames(){
-        $out = [];
-        foreach (self::getAllStatuses() as $name => $label) {
-            $out = $name;
-        }
-        return $out;
-    }
-
-
-    public static function isStatus($id){
-        return (!self::getById($id)==false);
-    }
-
-
-    public static function getStatusLabel($status){
-        return self::getAllStatuses()[$status];
     }
 
 
