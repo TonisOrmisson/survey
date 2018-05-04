@@ -28,7 +28,7 @@ class Status extends StatusModel
     const STATUS_SCREENED       = 'screened';
     const STATUS_END_QUOTA      = 'quota';
 
-    /** @inheritdoc */
+    /** {@inheritdoc} */
     public static function getModels()
     {
         return array_merge(parent::getModels(), [
