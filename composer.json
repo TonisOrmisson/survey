@@ -16,7 +16,12 @@
         {
             "type": "composer",
             "url": "https://packages.andmemasin.eu"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
         }
+
     ],
 
     "minimum-stability": "dev",
