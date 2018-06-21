@@ -24,7 +24,7 @@
     "prefer-stable": true,
     "require": {
         "yiisoft/yii2": ">=2.0.14",
-        "andmemasin/yii2-myabstract": "~2.4.0"
+        "andmemasin/yii2-myabstract": "~2.5.0"
     },
 
     "autoload": {
