@@ -3,8 +3,6 @@
 namespace andmemasin\survey;
 class Survey
 {
-    /** The action name of the Get-new-key in SurveyHub */
-    const ACTION_SURVEY_GETNEWKEY = "survey/get-new-key";
 
     /** The action name of the Get-new-key in SurveyHub */
     const ACTION_RESPONDENT_GETNEWKEY = "respondent/get-new-key";
