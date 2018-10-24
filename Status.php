@@ -124,7 +124,20 @@ class Status extends StatusModel
         return in_array($status,$lockedStatuses);
     }
 
-    public static function isAnswered($status){
+    public function isAnswered($status){
+        $statuses = [
+            self::STATUS_ANSWERED,
+            self::STATUS_SCREENED,
+            self::STATUS_END_QUOTA,
+        ];
+        return in_array($status,$statuses);
+    }
+
+    /**
+     * @param $status
+     * @return bool Answered or rejected somehow
+     */
+    public function isClosed($status){
         $statuses = [
             self::STATUS_REJECTED,
             self::STATUS_COMPLAINT,
