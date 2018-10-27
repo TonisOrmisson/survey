@@ -23,8 +23,8 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "yiisoft/yii2": ">=2.0.14",
-        "andmemasin/yii2-myabstract": "~2.5"
+        "yiisoft/yii2": "^2.0.14",
+        "andmemasin/yii2-myabstract": "^2.5.15"
     },
 
     "autoload": {
