@@ -29,9 +29,9 @@ class Status extends StatusModel
     const STATUS_END_QUOTA      = 'quota';
 
     /** {@inheritdoc} */
-    public static function getModels()
+    public function getModelAttributes()
     {
-        return array_merge(parent::getModels(), [
+        return array_merge(parent::getModelAttributes(), [
             self::STATUS_CONFIRMED => [
                 'id' => self::STATUS_CONFIRMED,
                 'label' => Yii::t('app','Confirmed'),
@@ -81,13 +81,6 @@ class Status extends StatusModel
     }
 
 
-    /**
-     * @return Status[]
-     * @deprecated use getModels()
-     */
-    public static  function getAllStatuses(){
-        return self::getModels();
-    }
 
     /**
      * Returns statuses for simple active/inactive usage
