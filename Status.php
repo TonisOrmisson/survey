@@ -148,7 +148,7 @@ class Status extends StatusModel
         return in_array($status,$statuses);
     }
 
-    public static function isActive($status){
+    public function isActive($status){
         $statuses = [
             self::STATUS_ACTIVE,
             self::STATUS_TESTING,
@@ -162,6 +162,5 @@ class Status extends StatusModel
         ];
         return in_array($status,$statuses);
     }
-
 
 }
