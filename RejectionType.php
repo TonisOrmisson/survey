@@ -17,7 +17,7 @@ class RejectionType extends StaticModel
     public static $keyColumn = 'name';
 
     /** {@inheritdoc} */
-    public static function getModels(){
+    public function getModelAttributes(){
         return [
             self::TYPE_HARD_BOUNCE => [
                 'type' => self::TYPE_HARD_BOUNCE,
