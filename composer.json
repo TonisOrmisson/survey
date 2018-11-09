@@ -5,7 +5,7 @@
     "license":"proprietary",
 
     "description": "Cross-app Survey library",
-    "keywords": ["yii2", "survey-hub", "survey", "andmemasin"],
+    "keywords": ["yii2", "survey", "andmemasin"],
     "authors": [
         {
             "name": "Tõnis Ormisson",
