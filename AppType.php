@@ -8,6 +8,8 @@ use yii\base\Component;
  *
  * Class AppType
  * @package andmemasin\surveyapp\models
+ * @property string $label
+ * @property string $iconName FA icon name
  */
 class AppType extends Component
 {
@@ -22,7 +24,49 @@ class AppType extends Component
     /** @var  string $code */
     public $code;
 
-    /** @var  string $label */
-    public $label;
+    /**
+     * @return string
+     */
+    public function getLabel() {
+        switch ($this->code) {
+            case static::TYPE_SYSTEM:
+                return \Yii::t('survey', "System app");
+            case static::TYPE_CATI:
+                return \Yii::t('survey', "CATI");
+            case static::TYPE_WEB_PANEL:
+                return \Yii::t('survey', "Online panel");
+            case static::TYPE_WEB:
+                return \Yii::t('survey', "Web survey");
+            case static::TYPE_F2F:
+                return \Yii::t('survey', "F2F");
+            case static::TYPE_RESPONDENT_HUB:
+                return \Yii::t('survey', "Responddent-hub");
+            default:
+                return "";
+        }
+
+    }
+    /**
+     * @return string
+     */
+    public function getIconName() {
+        switch ($this->code) {
+            case static::TYPE_SYSTEM:
+                return 'gear';
+            case static::TYPE_CATI:
+                return 'phone';
+            case static::TYPE_WEB_PANEL:
+                return 'check';
+            case static::TYPE_WEB:
+                return 'chrome';
+            case static::TYPE_F2F:
+                return 'tablet';
+            case static::TYPE_RESPONDENT_HUB:
+                return 'users';
+            default:
+                return '';
+        }
+
+    }
 
 }
