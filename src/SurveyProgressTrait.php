@@ -51,7 +51,10 @@ trait SurveyProgressTrait
         if ($this->targetCount > 0) {
             return (float) $this->fullCount / $this->targetCount;
         }
-        return (float) $this->fullCount / $this->totalSampleCount;
+        if ($this->totalSampleCount > 0) {
+            return (float) $this->fullCount / $this->totalSampleCount;
+        }
+        return 0.0;
     }
 
 }
