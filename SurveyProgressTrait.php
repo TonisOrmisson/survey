@@ -13,6 +13,9 @@ trait SurveyProgressTrait
     /** @var integer $targetCount */
     public $targetCount = 0;
 
+    /** @var integer $totalSampleCount */
+    public $totalSampleCount = 0;
+
     /** @var integer $fullCount */
     public $fullCount = 0;
 
