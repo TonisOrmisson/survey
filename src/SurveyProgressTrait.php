@@ -52,6 +52,8 @@ trait SurveyProgressTrait
     /** @var float $responseRate */
     public $responseRate;
 
+    /** @var string $sourceLink */
+    public $sourceLink;
 
     /**
      * @return float
