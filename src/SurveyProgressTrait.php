@@ -43,6 +43,16 @@ trait SurveyProgressTrait
     /** @var array */
     public $rejectClicksData = [];
 
+    /** @var  \DateInterval LOI average */
+    public $LOIAverage;
+
+    /** @var  \DateInterval LOI median */
+    public $LOIMedian;
+
+    /** @var float $responseRate */
+    public $responseRate;
+
+
     /**
      * @return float
      */
