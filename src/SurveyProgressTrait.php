@@ -38,6 +38,12 @@ trait SurveyProgressTrait
     public $progressData = [];
 
     /** @var array */
+    public $previewClicksData = [];
+
+    /** @var array */
+    public $finishedInterviewsData = [];
+
+    /** @var array */
     public $startClicksData = [];
 
     /** @var array */
