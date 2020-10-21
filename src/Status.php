@@ -22,6 +22,7 @@ class Status extends StatusModel
     const STATUS_FAILED         = "failed";
     const STATUS_REJECTED       = "rejected";
     const STATUS_COMPLAINT      = "complaint";
+    const STATUS_BOUNCED        = "bounced";
 
     // these are used for linking with main Results
     const STATUS_ANSWERED       = 'answered';
