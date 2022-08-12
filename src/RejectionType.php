@@ -14,10 +14,11 @@ class RejectionType extends StaticModel
     const TYPE_OTHER = 'other';
 
     /** {@inheritdoc} */
-    public static $keyColumn = 'name';
+    public static string $keyColumn = 'name';
 
     /** {@inheritdoc} */
-    public function getModelAttributes(){
+    public function getModelAttributes() : array
+    {
         return [
             self::TYPE_HARD_BOUNCE => [
                 'type' => self::TYPE_HARD_BOUNCE,

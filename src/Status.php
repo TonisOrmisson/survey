@@ -30,7 +30,7 @@ class Status extends StatusModel
     const STATUS_END_QUOTA      = 'quota';
 
     /** {@inheritdoc} */
-    public function getModelAttributes()
+    public function getModelAttributes() : array
     {
         return array_merge(parent::getModelAttributes(), [
             self::STATUS_CONFIRMED => [
@@ -87,10 +87,11 @@ class Status extends StatusModel
      * Returns statuses for simple active/inactive usage
      * @return Status[]
      */
-    public static function getSimpleStatuses(){
-        $statuses  =[];
-        $statuses[] = self::getById(self::STATUS_ACTIVE);
-        $statuses[] = self::getById(self::STATUS_INACTIVE);
+    public static function getSimpleStatuses() : array
+    {
+        $statuses = [];
+        $statuses[] = static::getById(self::STATUS_ACTIVE);
+        $statuses[] = static::getById(self::STATUS_INACTIVE);
         return $statuses;
     }
 
@@ -98,18 +99,16 @@ class Status extends StatusModel
      * Returns all statuses that allow active tasks
      * @return Status[]
      */
-    public static function getActiveStatuses(){
+    public static function getActiveStatuses() : array
+    {
         $statuses  =[];
         $statuses[] = self::getById(self::STATUS_ACTIVE);
         $statuses[] = self::getById(self::STATUS_TESTING);
         return $statuses;
     }
 
-    /**
-     * @param string $status
-     * @return bool
-     */
-    public static function isLocked($status){
+    public static function isLocked(string|int $status) : bool
+    {
         $lockedStatuses = [
             self::STATUS_CONFIRMED, self::STATUS_ACTIVE, self::STATUS_TESTING,
             self::STATUS_INACTIVE, self::STATUS_ARCHIVED, self::STATUS_REJECTED,
@@ -118,7 +117,8 @@ class Status extends StatusModel
         return in_array($status,$lockedStatuses);
     }
 
-    public function isAnswered($status){
+    public function isAnswered(string|int $status) : bool
+    {
         $statuses = [
             self::STATUS_ANSWERED,
             self::STATUS_SCREENED,
@@ -131,7 +131,8 @@ class Status extends StatusModel
      * @param $status
      * @return bool Answered or rejected somehow
      */
-    public function isClosed($status){
+    public function isClosed(string|int $status) : bool
+    {
         $statuses = [
             self::STATUS_REJECTED,
             self::STATUS_COMPLAINT,
@@ -142,7 +143,8 @@ class Status extends StatusModel
         return in_array($status,$statuses);
     }
 
-    public function isActive($status){
+    public function isActive(string|int $status) : bool
+    {
         $statuses = [
             self::STATUS_ACTIVE,
             self::STATUS_TESTING,
@@ -150,7 +152,8 @@ class Status extends StatusModel
         return in_array($status,$statuses);
     }
 
-    public static function isArchived($status){
+    public static function isArchived(string|int $status) : bool
+    {
         $statuses = [
             self::STATUS_ARCHIVED,
         ];
